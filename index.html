@@ -26,21 +26,93 @@
     />
     <link rel="stylesheet" href="/index.css" />
     <link rel="stylesheet" href="/index.js"/>
-    <link rel="stylesheet" href="/image/responsive.css"
+    <link rel="stylesheet" href="/responsive.css"/>
 
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="assets/css/docs.theme.min.css"> -->
+
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owlcarousel/assets/owl.theme.default.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Yeah i know js should not be in header. Its required for demos.-->
+
+    <!-- javascript -->
+    <script src="assets/vendors/jquery.min.js"></script>
+    <script src="assets/owlcarousel/owl.carousel.js"></script>
+    
+    
+     
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
     <link
       href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
       rel="stylesheet"
     />
+
+
+    <!-- js for hamburger menu  -->
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+  const menuCheckbox = document.getElementById('menuCheckbox');
+  const menuItems = document.querySelectorAll('.menuItem');
+
+  menuItems.forEach(function (menuItem) {
+    menuItem.addEventListener('click', function () {
+      menuCheckbox.checked = false;
+    });
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!document.getElementById('menuToggle').contains(event.target)) {
+      menuCheckbox.checked = false;
+    }
+  });
+});
+
+   </script>
+
+<!-- js for dropdown -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
    
-    
+    var dropdownSubmenus = document.querySelectorAll('.dropdown-submenu');
+
+    dropdownSubmenus.forEach(function (submenu) {
+      submenu.addEventListener('click', function (event) {
+        event.stopPropagation();
+        submenu.classList.toggle('show');
+        submenu.querySelector('.dropdown-menu').classList.toggle('show');
+      });
+    });
+
+  
+    document.addEventListener('click', function (event) {
+      dropdownSubmenus.forEach(function (submenu) {
+        submenu.classList.remove('show');
+        submenu.querySelector('.dropdown-menu').classList.remove('show');
+      });
+    });
+  });
+</script>
+
   </head>
+
   <body class="p-3 m-0 border-0 bd-example m-0 border-0">
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary m-20">
       <div class="container-fluid">
         <i class="fa-solid fa-message" style="color: green"></i>
@@ -69,6 +141,10 @@
       </div>
     </nav>
 
+   
+
+
+    
     <!-- --------------------- sec navbar -->
     <div class="sec_nav">
       <div class="logo">GREEN</div>
@@ -106,12 +182,49 @@
           </ul>
         </li>
         
-
         <li class="nav-item">
           <a class="nav-link" href="#contact">Contact</a>
         </li>
         <button type="button" class="btn btn-outline-success">Get Stated</button>
       </ul>
+    
+      <nav role="navigation" class="hamburger">
+        <div id="menuToggle">
+          <input type="checkbox" id="menuCheckbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <a href="#home"><li class="menuItem">Home</li></a>
+            <a href="#about"><li class="menuItem">About</li></a>
+            <a href="#service"><li class="menuItem">Service</li></a>
+            <a href="#portfolio"><li class="menuItem">Portfolio</li></a>
+            <a href="#team"><li class="menuItem">Team</li></a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item dropdown-toggle" href="#">Something else here</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Sub action</a></li>
+                    <li><a class="dropdown-item" href="#">Another sub action</a></li>
+                  </ul>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+              </ul>
+            </li>
+            <a href="#contact"><li class="menuItem">Contact</li></a>
+            </ul>
+        </div>
+      </nav>
+      
+      
+    
+      
+    
     </div>
 
     <!-- **********************carousal***************************** -->
@@ -345,46 +458,76 @@
 
    
     <!-- ========= our client =========== -->
+   
     <div class="about" id="service">
       <div class="about_title"><h2>OUR CLIENT</h2></div>
       <div class="para_title">
-        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+       Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
         aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
         quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat
         sit in iste officiis commodi quidem hic quas.
       </div>
     </div>
-    <div class="client-container">
-      <div class="client_img">
-        <img src="/image/client-1.png">
-        <img src="/image/client-2.png">
-        <img src="/image/client-3.png">
-        <img src="/image/client-4.png">
-        <img src="/image/client-5.png">
-        <img src="/image/client-6.png">
-        <img src="/image/client-7.png">
-        <img src="/image/client-8.png">
+    <section id="demos">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="owl-carousel owl-theme" >
+            <div class="item">
+              <img src="/image/client-1.png" style="width: 50%;">
+            </div>
+            <div class="item">
+              <img src="/image/client-2.png"  style="width: 50%;">
+            </div>
+            <div class="item">
+              <img src="/image/client-3.png"  style="width: 50%;">
+            </div>
+            <div class="item">
+              <img src="/image/client-4.png"  style="width: 50%;">
+            </div>
+            <div class="item">
+              <img src="/image/client-5.png"  style="width: 50%;">
+            </div>
+            <div class="item">
+              <img src="/image/client-6.png"  style="width: 50%;">
+            </div>
+            <div class="item">
+              <img src="/image/client-7.png"  style="width: 50%;">
+            </div>
+            <div class="item">
+              <img src="/image/client-8.png"  style="width: 50%;">
+            </div>
+            
+          </div>
+          
+          <script>
+            $(document).ready(function() {
+              var owl = $('.owl-carousel');
+              owl.owlCarousel({
+                items: 4,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 1000,
+                autoplayHoverPause: true
+              });
+              $('.play').on('click', function() {
+                owl.trigger('play.owl.autoplay', [1000])
+              })
+              $('.stop').on('click', function() {
+                owl.trigger('stop.owl.autoplay')
+              })
+            })
+          </script>
+        </div>
       </div>
-      <div class="indicators">
-        <input type="radio" name="slide" id="slide1" checked>
-        <label for="slide1"></label>
-        <input type="radio" name="slide" id="slide2">
-        <label for="slide2"></label>
-        <input type="radio" name="slide" id="slide3">
-        <label for="slide3"></label>
-      </div>
-    </div>
-    
- 
-    
-    
-    
+    </section>
 
-    
-    <section id="clients" class="clients">
+
       <!-- =========service========= -->
-        <div class="Allservicename">
-         <div class="about" id="service">
+
+
+   <div class="Allservicename">
+     <div class="about" id="service">
       <div class="about_title"><h2>SERVICE</h2></div>
       <div class="para_title">
        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
@@ -394,6 +537,7 @@
       </div>
     </div>
 
+    <div class="allboysi">
       <div class="boysi1">
         <div class="icon-roundedy">
           <i class="fa-solid fa-football" style="color: sandybrown;"></i>
@@ -436,7 +580,7 @@
         <title>lorem</title>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, quidem.</p>
       </div>
-      
+      </div>
     </div>
     
   
@@ -444,7 +588,7 @@
     <!-- =====================call to Action================= -->
     <div class="calltoaction text-bg-success mb-3" style="max-width: 100%">
       <div class="card-bodylon">
-        <h5 class="card-titleesed">Success card title</h5>
+        <h5 class="card-titleesed">Call to Action</h5>
         <p class="card-texterty">
           Some quick example text to build on the card title and Lorem ipsum
           dolor sit amet consectetur adipisicing elit. Labore suscipit
@@ -469,7 +613,8 @@
         sit in iste officiis commodi quidem hic quas.
       </div>
     </div>
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+    <ul class="naval nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">ALL</button>
       </li>
@@ -483,6 +628,9 @@
         <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" >WEB</button>
       </li>
     </ul>
+
+
+
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
         
@@ -719,6 +867,7 @@
 </div>
     <!-- ========CONTACT============== -->
     <div class="about" id="portfolio">
+      <div class="about_title"><h2>OUR CLIENT</h2></div>
       <div class="para_title" id="contact">
         Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
         aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
@@ -770,7 +919,7 @@
           </div>
       </div>
   
-      <div class="contact-form col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+      <div class="contact-form col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" id="">
           <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                   <div class="form-group col-md-6">
@@ -810,12 +959,9 @@
       <p class="para">Design By <span class="pankaj">Pankaj</span></p>
     </div>
 
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="assets/vendors/highlight.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"> </script>
 
 
 
